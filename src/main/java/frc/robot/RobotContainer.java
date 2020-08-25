@@ -7,11 +7,17 @@
 
 package frc.robot;
 
+import java.util.HashMap;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.ParsableCommand;
+import frc.robot.commands.SetCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandGroupBase;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -23,7 +29,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private  SequentialCommandGroup m_autoCommand;
 
 
 
@@ -50,8 +56,13 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public Command getAutonomousCommand() {
+  public SequentialCommandGroup getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
+    HashMap<String, ParsableCommand> map = new HashMap<String, ParsableCommand>();
+    map.put("set", new SetCommand());
+    Command test = map.get("set").setA("test");
+    m_autoCommand = new SequentialCommandGroup(test, map.get("set").setA("input"));
+
     return m_autoCommand;
   }
 }

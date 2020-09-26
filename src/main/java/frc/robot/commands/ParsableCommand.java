@@ -19,8 +19,8 @@ public class ParsableCommand extends CommandBase {
 
     }
 
-    public ParsableCommand setA(String input) {
-       return this;
+    public ParsableCommand (String input) {
+       
     }
 
     @Override

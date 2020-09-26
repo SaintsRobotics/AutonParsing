@@ -14,28 +14,30 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 /**
  * A mock version of the  Command
  */
-public class SetCommand extends ParsableCommand {
+public class TestCommand extends ParsableCommand {
     String a;
     
-    public SetCommand() {
+    public TestCommand() {
 
     }
 
-    public SetCommand(String params) {
+    public TestCommand(String params) {
         a = params;
     }
 
+    
     @Override
     public void initialize() {
-        SmartDashboard.putString("set params", a);
+        SmartDashboard.putString("test params", a);
     }
 
     @Override
     public void execute() {
 
     }
-
+    
     public boolean isFinished(){
         return true;
     }
+
 }

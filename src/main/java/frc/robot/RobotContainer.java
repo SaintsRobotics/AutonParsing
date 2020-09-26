@@ -58,11 +58,7 @@ public class RobotContainer {
    */
   public SequentialCommandGroup getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    HashMap<String, ParsableCommand> map = new HashMap<String, ParsableCommand>();
-    map.put("set", new SetCommand());
-    Command test = map.get("set").setA("test");
-    m_autoCommand = new SequentialCommandGroup(test, map.get("set").setA("input"));
-
+    m_autoCommand = keyParser.parse();
     return m_autoCommand;
   }
 }

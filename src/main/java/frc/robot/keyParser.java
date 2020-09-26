@@ -33,6 +33,7 @@ public class keyParser {
     }
 
     public static SequentialCommandGroup parse() {
+        group = new SequentialCommandGroup();
         for (String key : keyArray) {
             String[] arr = splitString(key);
             String ID = arr[0];

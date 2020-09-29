@@ -11,43 +11,44 @@ import com.fasterxml.jackson.databind.SequenceWriter;
 
 import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.commands.ParsableCommand;
 import frc.robot.commands.SetCommand;
 import frc.robot.commands.TestCommand;
 
 /**
- * Do NOT add any static variables to this class, or any initialization at all. Unless you know what
- * you are doing, do not modify this file except to change the parameter class to the startRobot
- * call.
+ * Do NOT add any static variables to this class, or any initialization at all.
+ * Unless you know what you are doing, do not modify this file except to change
+ * the parameter class to the startRobot call.
  */
 public class keyParser {
     private static SequentialCommandGroup group;
     private static String[] keyArray;
 
     public keyParser() {
-      
+
     }
 
-    private static String[] splitString (String key, String delimiter) {     
-        return key.split(delimiter);        
+    private static String[] splitString(String key, String delimiter) {
+        return key.split(delimiter);
     }
 
     public static SequentialCommandGroup parse(String rawInput) {
-        keyArray = splitString(rawInput, ","); // keys will be separated by commas
+        keyArray = splitString(rawInput, ", "); // keys will be separated by commas
         group = new SequentialCommandGroup();
+        
         for (String key : keyArray) {
             String[] arr = splitString(key, "@"); // keys will be formatted: ID@params
             String ID = arr[0];
             String params = arr[1];
-            
-            if (ID.equals("test")) {            
+
+            if (ID.equals("test")) {
                 group.addCommands(new TestCommand(params));
-            } else if (ID.equals("set")) {
+            } else if (ID.equals("set")) {                
                 group.addCommands(new SetCommand(params));
-            }   
-            // continue chaining if-else statements for each key 
-            // bad code - fix later if time       
+            }
+            // continue chaining if-else statements for each key
+            // bad code - fix later if time
         }
-        return group;        
+        return group;
     }
 }
-

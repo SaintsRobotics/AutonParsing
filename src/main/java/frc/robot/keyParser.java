@@ -21,23 +21,24 @@ import frc.robot.commands.TestCommand;
  */
 public class keyParser {
     private static SequentialCommandGroup group;
-    private static String[] keyArray = {"test@t", "set@s"};
+    private static String[] keyArray;
 
     public keyParser() {
-
+      
     }
 
-    private static String[] splitString (String key) {
-        // assuming delimiter is @        
-        return key.split("@");        
+    private static String[] splitString (String key, String delimiter) {     
+        return key.split(delimiter);        
     }
 
-    public static SequentialCommandGroup parse() {
+    public static SequentialCommandGroup parse(String rawInput) {
+        keyArray = splitString(rawInput, ","); // keys will be separated by commas
         group = new SequentialCommandGroup();
         for (String key : keyArray) {
-            String[] arr = splitString(key);
+            String[] arr = splitString(key, "@"); // keys will be formatted: ID@params
             String ID = arr[0];
             String params = arr[1];
+            
             if (ID.equals("test")) {            
                 group.addCommands(new TestCommand(params));
             } else if (ID.equals("set")) {

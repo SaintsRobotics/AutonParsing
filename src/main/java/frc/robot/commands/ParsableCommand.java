@@ -19,7 +19,7 @@ public class ParsableCommand extends CommandBase {
 
     }
 
-    public ParsableCommand (String input) {
+    public ParsableCommand (String param) {
        
     }
 

@@ -16,4 +16,8 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+    public class Intake{
+        public static final int intakeControllerPort = 0;
+        public static final int armControllerPort = 1;
+    }
 }

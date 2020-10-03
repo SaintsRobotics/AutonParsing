@@ -1,3 +1,7 @@
+package frc.robot.commands;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.CommandBase;
+
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2018-2019 FIRST. All Rights Reserved.                        */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -5,22 +9,20 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /**
- * A mock version of the GotoPosition Command
+ * A mock version of the  Command
  */
-public class ParsableCommand extends CommandBase {
+public class ReleaseClimber extends ParsableCommand {
+    String params;
     
-
-    public ParsableCommand() {
+    public ReleaseClimber() {
 
     }
 
-    public ParsableCommand (String param) {
-       
+    public ReleaseClimber(String params) {
+        this.params = params;
     }
 
     public void parse () {
@@ -28,9 +30,8 @@ public class ParsableCommand extends CommandBase {
     }
 
     @Override
-   
     public void initialize() {
-        
+        SmartDashboard.putString("releaseClimb " + params + " params", params);
     }
 
     @Override
@@ -38,4 +39,7 @@ public class ParsableCommand extends CommandBase {
 
     }
 
+    public boolean isFinished(){
+        return true;
+    }
 }

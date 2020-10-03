@@ -28,7 +28,7 @@ public class TestCommand extends ParsableCommand {
     
     @Override
     public void initialize() {
-        SmartDashboard.putString("test params", a);
+        SmartDashboard.putString("test " + a + " params", a);
     }
 
     @Override

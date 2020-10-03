@@ -6,12 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-
-import com.fasterxml.jackson.databind.SequenceWriter;
-
-import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.ParsableCommand;
 import frc.robot.commands.SetCommand;
 import frc.robot.commands.TestCommand;
 
@@ -28,16 +23,12 @@ public class keyParser {
 
     }
 
-    private static String[] splitString(String key, String delimiter) {
-        return key.split(delimiter);
-    }
-
     public static SequentialCommandGroup parse(String rawInput) {
-        keyArray = splitString(rawInput, ", "); // keys will be separated by commas
+        keyArray = rawInput.split(", "); // keys will be separated by commas
         group = new SequentialCommandGroup();
         
         for (String key : keyArray) {
-            String[] arr = splitString(key, "@"); // keys will be formatted: ID@params
+            String[] arr = key.split("@"); // keys will be formatted: ID@params
             String ID = arr[0];
             String params = arr[1];
 

@@ -23,8 +23,11 @@ public class keyParser {
     private static SequentialCommandGroup group;
     private static String[] keyArray;
 
+    //subsystems
+   
+    
     public keyParser() {
-
+        
     }
 
     public static SequentialCommandGroup parse(String rawInput) {
@@ -32,15 +35,19 @@ public class keyParser {
         group = new SequentialCommandGroup();
         
         for (String key : keyArray) {
+        
             String[] arr = key.split("@"); // keys will be formatted: ID@params
             String ID = arr[0];
-            String params = arr[1];
+            String params = "";
+            if(arr.length > 1){
+                params = arr[1];
+            }
 
             if (ID.equals("test")) {
                 group.addCommands(new TestCommand(params));
             } else if (ID.equals("set")) {                
                 group.addCommands(new SetCommand(params));
-            }
+            } 
             // continue chaining if-else statements for each key
             // bad code - fix later if time - clone method??
         }

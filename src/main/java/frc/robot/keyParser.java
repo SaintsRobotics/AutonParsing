@@ -7,8 +7,12 @@
 
 package frc.robot;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.SetCommand;
 import frc.robot.commands.TestCommand;
+import frc.robot.commands.SetCommand;
+
+
+
+
 
 /**
  * Do NOT add any static variables to this class, or any initialization at all.
@@ -38,7 +42,7 @@ public class keyParser {
                 group.addCommands(new SetCommand(params));
             }
             // continue chaining if-else statements for each key
-            // bad code - fix later if time
+            // bad code - fix later if time - clone method??
         }
         return group;
     }

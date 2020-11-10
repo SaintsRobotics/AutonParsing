@@ -6,19 +6,11 @@
 /*----------------------------------------------------------------------------*/
 
 
-// random change idk
 package frc.robot;
-
-import java.util.HashMap;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.ParsableCommand;
-//import frc.robot.commands.SetCommand;
 import frc.robot.subsystems.ExampleSubsystem;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.CommandGroupBase;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 /**
@@ -59,7 +51,6 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public SequentialCommandGroup getAutonomousCommand(String rawInput) {
-    // An ExampleCommand will run in autonomous
     m_autoCommand = keyParser.parse(rawInput);
     return m_autoCommand;
   }

@@ -21,17 +21,15 @@ import frc.robot.commands.SetCommand;
  */
 public class keyParser {
     private static SequentialCommandGroup group;
-    private static String[] keyArray;
 
     /**
      * This function separates a list of inputs from the user into a sequence of 
      * commands. 
      */
-    public static SequentialCommandGroup parse(String rawInput) {
-        keyArray = rawInput.split(", "); // keys will be separated by commas
+    public static SequentialCommandGroup parse(String[] rawInput) {
         group = new SequentialCommandGroup();
         
-        for (String key : keyArray) {
+        for (String key : rawInput) {
         
             String[] arr = key.split("@"); // keys will be formatted: ID@params 
             String ID = arr[0];

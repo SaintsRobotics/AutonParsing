@@ -50,7 +50,7 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public SequentialCommandGroup getAutonomousCommand(String rawInput) {
+  public SequentialCommandGroup getAutonomousCommand(String[] rawInput) {
     m_autoCommand = keyParser.parse(rawInput);
     return m_autoCommand;
   }

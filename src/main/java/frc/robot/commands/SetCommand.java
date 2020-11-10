@@ -25,6 +25,9 @@ public class SetCommand extends ParsableCommand {
         a = params;
     }
 
+    public void parse () { 
+        
+    }
     
     @Override
     public void initialize() {

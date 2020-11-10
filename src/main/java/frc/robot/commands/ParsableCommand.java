@@ -23,7 +23,7 @@ public class ParsableCommand extends CommandBase {
        
     }
 
-    public void parse () {
+    public void parse () { // each parameter in key is separated by a ;
 
     }
 

@@ -33,7 +33,7 @@ public class keyParser {
         
         for (String key : keyArray) {
         
-            String[] arr = key.split("@"); // keys will be formatted: ID@params
+            String[] arr = key.split("@"); // keys will be formatted: ID@params 
             String ID = arr[0];
             String params = "";
             if(arr.length > 1){

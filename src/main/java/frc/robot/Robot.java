@@ -33,6 +33,8 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     SmartDashboard.putString("Auton Values", "key1@params, key2@params, ...");
     m_robotContainer = new RobotContainer();
+
+    String userAutonInput = SmartDashboard.getString("Auton Values", "null");  
   }
 
   /**

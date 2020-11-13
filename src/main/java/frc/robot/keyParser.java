@@ -24,8 +24,11 @@ public class keyParser {
     private static String[] keyArray;
 
     /**
-     * This function separates a list of inputs from the user into a sequence of 
+     * This function separates a string input from the user into a sequence of 
      * commands. 
+     * @param rawInput the input from the user to be parsed
+     * @return the sequence of commands to be run in autonomous 
+     * 
      */
     public static SequentialCommandGroup parse(String rawInput) {
         keyArray = rawInput.split(", ");

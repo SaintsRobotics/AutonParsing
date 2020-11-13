@@ -10,20 +10,30 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /**
- * A mock version of the GotoPosition Command
+ * A framework for the commands which can be called with the autonomous parser
  */
+
 public class ParsableCommand extends CommandBase {
     
-
+    /**
+     * Default constructor
+     */
     public ParsableCommand() {
 
     }
 
+    /**
+     * Constructor to be used with autonomous parsing
+     * @param param the parameters for the command passed in by the user
+     */
     public ParsableCommand (String param) {
        
     }
 
-    public void parse () { // each parameter in key is separated by a ;
+    /**
+     * Separates the parameters out
+     */
+    public void parse () { 
 
     }
 

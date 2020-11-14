@@ -31,7 +31,7 @@ public class keyParser {
      * 
      */
     public static SequentialCommandGroup parse(String rawInput) {
-        keyArray = rawInput.split(", ");
+        keyArray = rawInput.split("; ");
         group = new SequentialCommandGroup();
         
         for (String key : keyArray) {

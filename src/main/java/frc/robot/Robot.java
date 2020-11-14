@@ -31,7 +31,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
-    SmartDashboard.putString("Auton Values", "key@params1, key@params2...");
+    SmartDashboard.putString("Auton Values", "key@params1; key@params2...");
     m_robotContainer = new RobotContainer();
 
     String userAutonInput = SmartDashboard.getString("Auton Values", null);  
